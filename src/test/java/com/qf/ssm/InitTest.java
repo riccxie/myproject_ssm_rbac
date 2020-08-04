@@ -40,5 +40,6 @@ public class InitTest {
 
         int insert = userService.insert(user);
         System.out.println(insert);
+        //初步
     }
 }
