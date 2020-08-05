@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.qf.dao.IPermissionDao" >
+
+  <resultMap id="BaseResultMap" type="com.qf.entity.Permission" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="per_name" property="perName" jdbcType="VARCHAR" />
+    <result column="per_url" property="perUrl" jdbcType="VARCHAR" />
+    <result column="per_code" property="perCode" jdbcType="VARCHAR" />
+    <result column="per_pid" property="perPid" jdbcType="INTEGER" />
+    <result column="per_type" property="perType" jdbcType="INTEGER" />
+  </resultMap>
+
+  <sql id="Base_Column_List" >
+    id, per_name, per_url, per_code, per_pid, per_type
+  </sql>
+
+  <select id="selectById" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select
+    <include refid="Base_Column_List" />
+    from t_permission
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+
+  <delete id="delete" parameterType="java.lang.Integer" >
+    delete from t_permission
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+
+  <insert id="insert" parameterType="com.qf.entity.Permission" >
+    insert into t_permission
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="perName != null" >
+        per_name,
+      </if>
+      <if test="perUrl != null" >
+        per_url,
+      </if>
+      <if test="perCode != null" >
+        per_code,
+      </if>
+      <if test="perPid != null" >
+        per_pid,
+      </if>
+      <if test="perType != null" >
+        per_type,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="perName != null" >
+        #{perName,jdbcType=VARCHAR},
+      </if>
+      <if test="perUrl != null" >
+        #{perUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="perCode != null" >
+        #{perCode,jdbcType=VARCHAR},
+      </if>
+      <if test="perPid != null" >
+        #{perPid,jdbcType=INTEGER},
+      </if>
+      <if test="perType != null" >
+        #{perType,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+
+  <update id="update" parameterType="com.qf.entity.Permission" >
+    update t_permission
+    <set >
+      <if test="perName != null" >
+        per_name = #{perName,jdbcType=VARCHAR},
+      </if>
+      <if test="perUrl != null" >
+        per_url = #{perUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="perCode != null" >
+        per_code = #{perCode,jdbcType=VARCHAR},
+      </if>
+      <if test="perPid != null" >
+        per_pid = #{perPid,jdbcType=INTEGER},
+      </if>
+      <if test="perType != null" >
+        per_type = #{perType,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+  <select id="selectList" resultMap="BaseResultMap">
+      select * from t_permission
+  </select>
+
+</mapper>

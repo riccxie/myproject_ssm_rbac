@@ -10,6 +10,7 @@
         <result column="username" property="username" jdbcType="VARCHAR" />
         <result column="password" property="password" jdbcType="VARCHAR" />
         <result column="age" property="age" jdbcType="INTEGER" />
+        <result column="sex" property="sex" jdbcType="INTEGER" />
         <result column="birthday" property="birthday" jdbcType="DATE" />
         <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
         <result column="create_user" property="createUser" jdbcType="INTEGER" />
@@ -25,7 +26,7 @@
 
     <sql id="Base_Column_List" >
         id, username, password, age, birthday, create_time, create_user, update_time, update_user,
-        email, flag,png
+        email, flag,png,sex
     </sql>
 
 
@@ -101,5 +102,54 @@
          <include refid="Base_Column_List"/>
          from t_user
     </select>
+
+    <select id="selectById" resultMap="BaseResultMap">
+          select
+               <include refid="Base_Column_List"/>
+           from t_user where id  = #{id}
+    </select>
+
+
+    <update id="update">
+        update t_user
+        <set >
+            <if test="username != null" >
+                username = #{username,jdbcType=VARCHAR},
+            </if>
+            <if test="password != null" >
+                password = #{password,jdbcType=VARCHAR},
+            </if>
+            <if test="age != null" >
+                age = #{age,jdbcType=INTEGER},
+            </if>
+            <if test="birthday != null" >
+                birthday = #{birthday,jdbcType=DATE},
+            </if>
+                update_time =now(),
+            <if test="updateUser != null" >
+                update_user = #{updateUser,jdbcType=INTEGER},
+            </if>
+            <if test="email != null" >
+                email = #{email,jdbcType=VARCHAR},
+            </if>
+            <if test="flag != null" >
+                flag = #{flag,jdbcType=INTEGER},
+            </if>
+            <if test="png != null" >
+                png = #{png,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="sex != null" >
+                sex = #{sex,jdbcType=INTEGER},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+
+    <delete id="batchDel">
+        delete from t_user where id in
+        <foreach collection="list" open="(" close=")" item="id" separator=",">
+            #{id}
+        </foreach>
+    </delete>
 
 </mapper>

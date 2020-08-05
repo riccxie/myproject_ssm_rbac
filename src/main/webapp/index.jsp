@@ -1,4 +1,3 @@
-
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -51,12 +50,13 @@
     <input runat="server" id="divScrollValue" type="hidden" value="" />
     <div class="menu_dropdown bk_2">
         <dl id="menu-article">
-            <dt><i class="Hui-iconfont">&#xe616;</i> 资讯管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
-            <dd>
-                <ul>
+            <%--<dt><i class="Hui-iconfont">&#xe616;</i> 资讯管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>--%>
+            <%--<dd>--%>
+                <%--<ul>--%>
                     <li><a _href="user/getUserPage" href="javascript:void(0)">用户管理</a></li>
-                </ul>
-            </dd>
+                    <li><a _href="per/getPermissionPage" href="javascript:void(0)">权限管理</a></li>
+                <%--</ul>--%>
+            <%--</dd>--%>
         </dl>
     </div>
 </aside>

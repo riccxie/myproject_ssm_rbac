@@ -8,13 +8,21 @@ import com.qf.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
-public class UserServiceImpl extends BaseServiceImpl<User> implements IUserService{
+public class UserServiceImpl extends BaseServiceImpl<User> implements IUserService {
+
     @Autowired
     private IUserDao userDao;
 
     @Override
     protected IBaseDao<User> baseDao() {
         return userDao;
+    }
+
+    @Override
+    public int batchDel(List<Integer> ids) {
+        return userDao.batchDel(ids);
     }
 }

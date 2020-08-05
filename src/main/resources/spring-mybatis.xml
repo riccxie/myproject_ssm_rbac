@@ -6,12 +6,10 @@
        http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/lang http://www.springframework.org/schema/lang/spring-lang.xsd">
 
 
-<!--包含配置文件进来-->
+    <!-- 包含配置文件进来-->
     <import resource="classpath:spring-datasource.xml"/>
 
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-
-
         <property name="dataSource" ref="dataSource"/>
         <property name="typeAliasesPackage" value="com.qf.entity"/>
         <property name="mapperLocations" value="classpath:mapper/*.xml"/>
@@ -24,7 +22,6 @@
 
     <bean id="tx" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref="dataSource"/>
-
     </bean>
 
     <tx:annotation-driven transaction-manager="tx"/>
@@ -33,8 +30,4 @@
         <property name="basePackage" value="com.qf.dao"/>
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
     </bean>
-
-
 </beans>
-
-

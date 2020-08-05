@@ -55,7 +55,7 @@
 
     <!-- 指定包下的class指定不同的日志级别等-->
     <!--<logger name="com.qf.sl4j.test.Sl4jTest" level="info" >-->
-    <!--<appender-ref ref="console" />-->
+        <!--<appender-ref ref="console" />-->
     <!--</logger>-->
 
     <root>

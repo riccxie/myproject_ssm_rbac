@@ -9,6 +9,7 @@
 
     <context:component-scan base-package="com.qf" use-default-filters="false">
         <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+        <context:include-filter type="annotation" expression="org.springframework.web.bind.annotation.ControllerAdvice"/>
     </context:component-scan>
 
     <mvc:annotation-driven/>
@@ -23,7 +24,15 @@
     <mvc:resources mapping="/lib/**" location="/lib/"/>
     <mvc:resources mapping="/images/**" location="/images/"/>
     <mvc:resources mapping="/skin/**" location="/skin/"/>
+    <mvc:resources mapping="/png/**" location="/png/"/>
 
     <!-- 配置视图跳转的路径-->
     <mvc:view-controller path="/toAddUserPage" view-name="user/addUser"/>
+    <mvc:view-controller path="/toAddPerPage" view-name="per/addPer"/>
+
+
+    <!-- 上传文件解析器-->
+    <bean id="multipartResolver"
+          class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+    </bean>
 </beans>
