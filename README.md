@@ -1,22 +1,36 @@
 # day39_ssm_01_rbac
 
 #### 介绍
-ssm
+ssm权限管理
+
+用户模块
+
+角色模块
+
+权限模块
 
 #### 软件架构
 软件架构说明
 
 
+用户模块
+
+角色模块
+
+权限模块
+
+
 #### 安装教程
 
-1.  xxxx
-2.  xxxx
+1.  安装idea，参考百度
+2.  安装Navicat 12 for MySQL
 3.  xxxx
 
 #### 使用说明
 
-1.  xxxx
-2.  xxxx
+1.  安装idea，参考百度
+2.  安装Navicat 12 for MySQL
+3.  git导入即可：www.baidu.com
 
 #### 参与贡献
 
@@ -25,12 +39,16 @@ ssm
 3.  提交代码
 4.  新建 Pull Request
 
+#### 下一步要做
+8.4
+首次部署，搭环境，初始化
+8.5
+上传图片优化
+修改密码
+其他bug修护
+#### 问题总结
 
-#### 码云特技
-
-1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2.  码云官方博客 [blog.gitee.com](https://blog.gitee.com)
-3.  你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解码云上的优秀开源项目
-4.  [GVP](https://gitee.com/gvp) 全称是码云最有价值开源项目，是码云综合评定出的优秀开源项目
-5.  码云官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6.  码云封面人物是一档用来展示码云会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+1.  用idea提交到gitee时的文件提交问题，主要包括少文件，提交失败问题，多熟练git
+初学者经常在软件方面出现问题，如idea,tomcat,maven,git及Navicat 12 for MySQL，软件上手要自己动手熟练
+2.  idea环境大崩溃：表现为左边目录扫不到部分实际文件夹，pom.xml文件触动消失，重启等待数十分钟恢复
+3.  controller数据传输过去了，前端505，404等，定位到错误（首看后端台报错，从下往上看），我的问题在mapper的xml没配置好
