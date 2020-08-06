@@ -26,9 +26,6 @@ public class UserServiceImpl extends BaseServiceImpl<User> implements IUserServi
         return userDao.batchDel(ids);
     }
 
-    public int delete(List<Integer> id) {
-        return userDao.delete(id);
-    }
 
 
     public IUserDao getuserDao() {
@@ -43,4 +40,6 @@ public class UserServiceImpl extends BaseServiceImpl<User> implements IUserServi
         //删除一条
         userDao.deleteById(id);
     }
+
+
 }

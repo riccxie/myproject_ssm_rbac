@@ -8,8 +8,8 @@ import java.util.List;
 public interface IUserDao extends IBaseDao<User>{
     int batchDel(List<Integer> ids);
 
-    int delete(List<Integer> id);
-
     void deleteById(Integer id);
+
+
 }
 

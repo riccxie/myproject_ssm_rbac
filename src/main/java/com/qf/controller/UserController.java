@@ -47,6 +47,19 @@ public class UserController {
         model.addAttribute("user",user);
         return "user/updateUser";
     }
+    @RequestMapping(value = "/getUserpassById/{id}")
+    public String getUserpassById(@PathVariable  Integer id,Model model){
+        User user = userService.selectById(id);
+        model.addAttribute("user",user);
+        return "user/updatepassUser";
+    }
+    @RequestMapping(value = "/updatepassUser")
+    @ResponseBody
+    public ResultEntity updatepassUser(User user){
+
+        return ResponseUtils.writeResponse(userService.update(user));
+    }
+
 
     @RequestMapping(value = "/updateUser")
     @ResponseBody
@@ -59,15 +72,6 @@ public class UserController {
     public ResultEntity batchDel(@RequestParam("ids[]") List<Integer> ids){
         return  ResponseUtils.writeResponse(userService.batchDel(ids));
     }
-
-
-    @RequestMapping(value = "/deleteUser")
-    @ResponseBody
-    public ResultEntity delete(@RequestParam("ids[]") List<Integer> id){
-        return  ResponseUtils.writeResponse(userService.delete(id));
-    }
-
-
 
     /**
      * 删除一条信息
@@ -85,10 +89,5 @@ public class UserController {
             return "ok";
         }
     }
-
-
-
-
-
 
     }
