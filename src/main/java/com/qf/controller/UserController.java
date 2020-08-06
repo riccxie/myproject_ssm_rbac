@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.jws.WebParam;
+import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 @Controller
@@ -59,4 +60,35 @@ public class UserController {
         return  ResponseUtils.writeResponse(userService.batchDel(ids));
     }
 
-}
+
+    @RequestMapping(value = "/deleteUser")
+    @ResponseBody
+    public ResultEntity delete(@RequestParam("ids[]") List<Integer> id){
+        return  ResponseUtils.writeResponse(userService.delete(id));
+    }
+
+
+
+    /**
+     * 删除一条信息
+     * @param id
+     * @return
+     */
+    @RequestMapping("deleteById")
+    @ResponseBody
+    public String deleteById(Integer id) {
+        //判断取值id是否为null，为null则表明删除失败！
+        if (id == null) {
+            return "error";
+        } else {
+            userService.deleteById(id);
+            return "ok";
+        }
+    }
+
+
+
+
+
+
+    }

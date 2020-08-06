@@ -152,4 +152,16 @@
         </foreach>
     </delete>
 
+
+    <delete id="delete">
+        delete from t_user where id =
+            #{id}
+    </delete>
+
+    <!-- 删除一条信息 -->
+    <delete id="deleteById">
+    delete from t_user where id = #{id}
+    </delete>
+
+
 </mapper>

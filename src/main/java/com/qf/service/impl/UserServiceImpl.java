@@ -25,4 +25,22 @@ public class UserServiceImpl extends BaseServiceImpl<User> implements IUserServi
     public int batchDel(List<Integer> ids) {
         return userDao.batchDel(ids);
     }
+
+    public int delete(List<Integer> id) {
+        return userDao.delete(id);
+    }
+
+
+    public IUserDao getuserDao() {
+        return userDao;
+    }
+
+    public void setUserDao(IUserDao userDao) {
+        this.userDao = userDao;
+    }
+    @Override
+    public void deleteById(Integer id) {
+        //删除一条
+        userDao.deleteById(id);
+    }
 }
