@@ -23,7 +23,8 @@
         <div class="row cl">
             <label class="form-label col-3"><span class="c-red">*</span>权限名称：</label>
             <div class="formControls col-5">
-                <input type="text" class="input-text" value="用户管理" placeholder="" id="perName" name="perName" datatype="*2-8" nullmsg="用户名不能为空">
+                <input type="text" class="input-text" value="${per.perName}" placeholder="" id="perName" name="perName" datatype="*2-8" nullmsg="用户名不能为空">
+                <input type="hidden" name="id" value="${per.id}">
             </div>
             <div class="col-4"> </div>
         </div>
@@ -32,16 +33,16 @@
             <label class="form-label col-3"><span class="c-red">*</span>权限类型：</label>
             <div class="formControls col-5 skin-minimal">
                 <div class="radio-box">
-                    <input type="radio" id="sex-1" value="1" name="perType" datatype="*" nullmsg="请选择性别！" checked>
-                    <label for="sex-1">目录</label>
+                    <input type="radio" id="perType-1" value="1" name="perType" datatype="*" nullmsg="请选择性别！" checked>
+                    <label for="perType-1">目录</label>
                 </div>
                 <div class="radio-box">
-                    <input type="radio" id="sex-2" value="2" name="perType">
-                    <label for="sex-2">菜单</label>
+                    <input type="radio" id="perType-2" value="2" name="perType">
+                    <label for="perType-2">菜单</label>
                 </div>
                 <div class="radio-box">
-                    <input type="radio" id="sex-3" value="3" name="perType">
-                    <label for="sex-2">按钮</label>
+                    <input type="radio" id="perType-3" value="3" name="perType">
+                    <label for="perType-3">按钮</label>
                 </div>
             </div>
             <div class="col-4"> </div>
@@ -49,7 +50,7 @@
         <div class="row cl">
             <label class="form-label col-3">权限url：</label>
             <div class="formControls col-5">
-                <input type="text" class="input-text" value="user/getUserPage" placeholder="" id="perUrl" name="perUrl"  >
+                <input type="text" class="input-text" value="${per.perUrl}" placeholder="" id="perUrl" name="perUrl"  >
             </div>
             <div class="col-4"> </div>
         </div>
@@ -57,8 +58,8 @@
         <div class="row cl">
             <label class="form-label col-3">父目录：</label>
             <div class="formControls col-5">
-                <input type="hidden" name="perPid" id="per_pid">
-                <input type="text" class="input-text"  readonly placeholder="" id="per_pname" >
+                <input type="hidden" name="perPid" value="${per.perPid}" id="per_pid">
+                <input type="text" class="input-text"  value="${per.perPname}" readonly placeholder="" id="per_pname" >
                 <input type="text" style="width: 100px;" onclick="selectParentPer()" class="btn btn-primary radius" value="选择父权限"></input>
             </div>
             <div class="col-4"> </div>
@@ -67,7 +68,7 @@
         <div class="row cl">
             <label class="form-label col-3">权限码：</label>
             <div class="formControls col-5">
-                <input type="text" class="input-text" value="user:getUserPage" name="perCode" id="perCode" >
+                <input type="text" class="input-text" value="${per.perCode}" name="perCode" id="perCode" >
 
             </div>
             <div class="col-4"> </div>
@@ -94,6 +95,17 @@
 <script type="text/javascript">
 
 
+    // 菜单类型
+    var perType  = "${per.perType}";
+
+    if(perType == 1){
+        $("#perType-1").prop("checked",true);
+    }else if(perType == 2){
+        $("#perType-2").prop("checked",true);
+    }else if(perType == 3){
+        $("#perType-3").prop("checked",true);
+    }
+
     function selectParentPer(){
 
         // 弹出一个层
@@ -111,7 +123,7 @@
         $("#form-per-add").Validform({
             tiptype:2,
             callback:function(form){ // 表单验证成功后提交
-                submit("per/addPer",form)
+                submit("per/updatePer",form)
                 return false; // 返回false表单不会提交
             }
         });

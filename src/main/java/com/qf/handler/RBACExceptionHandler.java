@@ -18,10 +18,10 @@ public class RBACExceptionHandler {
     public ResultEntity businessException(BusinessException e){
         System.out.println("RBACExceptionHandler.businessException");
         // 记录异常到日志
-      log.error(e.getMsg(),e);
+        log.error(e.getMsg(),e);
 
-      // 响应给用户
-      return ResultEntity.error(e.getMsg());
+        // 响应给用户
+        return ResultEntity.error(e.getMsg());
     }
 
     @ExceptionHandler(value = Exception.class)

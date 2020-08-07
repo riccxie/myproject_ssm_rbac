@@ -9,17 +9,28 @@
     <result column="per_code" property="perCode" jdbcType="VARCHAR" />
     <result column="per_pid" property="perPid" jdbcType="INTEGER" />
     <result column="per_type" property="perType" jdbcType="INTEGER" />
+
+  </resultMap>
+  
+  <resultMap id="perZtreeResultMap" type="permission" extends="BaseResultMap">
+    <result column="is_parent" property="isParent"/>
+  </resultMap>
+
+  <resultMap id="perListResultMap" type="permission" extends="BaseResultMap">
+    <result column="per_pname" property="perPname"/>
   </resultMap>
 
   <sql id="Base_Column_List" >
     id, per_name, per_url, per_code, per_pid, per_type
   </sql>
 
-  <select id="selectById" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
-    select
-    <include refid="Base_Column_List" />
-    from t_permission
-    where id = #{id,jdbcType=INTEGER}
+  <select id="selectById" resultMap="perListResultMap" parameterType="java.lang.Integer" >
+        SELECT
+          per.*, ifnull(p.per_name, '无') as per_pname
+      FROM
+          t_permission per
+      LEFT JOIN t_permission p ON (per.per_pid = p.id)
+      where per.id= #{id}
   </select>
 
   <delete id="delete" parameterType="java.lang.Integer" >
@@ -93,8 +104,24 @@
     where id = #{id,jdbcType=INTEGER}
   </update>
 
-  <select id="selectList" resultMap="BaseResultMap">
-      select * from t_permission
+  <select id="selectList" resultMap="perListResultMap">
+    SELECT
+        per.*, ifnull(p.per_name, '无') as per_pname
+    FROM
+        t_permission per
+    LEFT JOIN t_permission p ON (per.per_pid = p.id)
+  </select>
+
+  <select id="getPerListByPid" resultMap="perZtreeResultMap">
+         SELECT
+          p.*,
+          subp.id AS is_parent
+      FROM
+          t_permission p
+      LEFT JOIN t_permission subp ON (p.id = subp.per_pid)
+      WHERE
+          p.per_pid = #{id}
+      group by p.id;
   </select>
 
 </mapper>

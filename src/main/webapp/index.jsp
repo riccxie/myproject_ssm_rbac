@@ -55,6 +55,8 @@
                 <%--<ul>--%>
                     <li><a _href="user/getUserPage" href="javascript:void(0)">用户管理</a></li>
                     <li><a _href="per/getPermissionPage" href="javascript:void(0)">权限管理</a></li>
+                    <li><a _href="role/getRolePage" href="javascript:void(0)">角色管理</a></li>
+                    <li><a _href="auth/toAuthList" href="javascript:void(0)">授权管理</a></li>
                 <%--</ul>--%>
             <%--</dd>--%>
         </dl>

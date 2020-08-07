@@ -27,7 +27,7 @@ public class UserServiceImpl extends BaseServiceImpl<User> implements IUserServi
     }
 
 
-
+    @Autowired
     public IUserDao getuserDao() {
         return userDao;
     }
