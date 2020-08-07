@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.*;
@@ -39,37 +40,35 @@ public class PermissionController {
     }
 
     //注释掉的内容*
-//    @RequestMapping(value = "/getPerListByPid")
-//    @ResponseBody
-//    public List<Map<String,Object>> getPerListByPid(Integer id){
-//
-//        // 1.判断如果pid为空，说明是第一次查询
-//        if(id == null){
-//            id = -1;
-//        }
-//
-//        // 2.根据pid查询子权限
-//        List<Permission> permissionList = permissionService.getPerListByPid(id);
-//
-//        // 3.准备一个map，把permissionList中的数据放到map中
-////        List<Map<String,Object>> data = new ArrayList<>();
-//        List<Map<String,Object>> data = new ArrayList<Map<String, Object>>();
-//
-//        for (Permission per:permissionList) {
-////            Map<String,Object> map = new HashMap<>();
+    @RequestMapping(value = "/getPerListByPid")
+    @ResponseBody
+    public List<Map<String,Object>> getPerListByPid(Integer id){
+
+        // 1.判断如果pid为空，说明是第一次查询
+        if(id == null){
+            id = -1;
+        }
+
+        // 2.根据pid查询子权限
+        List<Permission> permissionList = permissionService.getPerListByPid(id);
+
+        // 3.准备一个map，把permissionList中的数据放到map中
+//        List<Map<String,Object>> data = new ArrayList<>();
+        List<Map<String,Object>> data = new ArrayList<Map<String, Object>>();
+
+        for (Permission per:permissionList) {
 //            Map<String,Object> map = new HashMap<>();
-//            map.put("id",per.getId()); //节点id，点击节点发送请求时要用到id
-//            map.put("name",per.getPerName()); // 节点名字用来显示
-//            map.put("pid",per.getPerPid()); // 用来构建树结构
-//            map.put("isParent",per.getIsParent()); // 用来构建树结构
-//            // 添加到集合中
-//            data.add(map);
-//        }
-//
-//        // 返回数据
-//        return  data;
-//
-//    }
+            Map<String,Object> map = new HashMap<String,Object>();
+            map.put("id",per.getId()); //节点id，点击节点发送请求时要用到id
+            map.put("name",per.getPerName()); // 节点名字用来显示
+            map.put("pid",per.getPerPid()); // 用来构建树结构
+            map.put("isParent",per.getIsParent()); // 用来构建树结构
+            // 添加到集合中
+            data.add(map);
+        }
+        // 返回数据
+        return  data;
+    }
 
     @RequestMapping(value = "/getPerById/{id}")
     public String getPerById(@PathVariable Integer id,Model model){
@@ -82,5 +81,27 @@ public class PermissionController {
     @ResponseBody
     public ResultEntity updatePer(Permission permission){
         return  ResponseUtils.writeResponse(permissionService.update(permission));
+    }
+
+    /**
+     * 删除一条信息
+     * @param id
+     * @return
+     */
+    @RequestMapping("deleteById")
+    @ResponseBody
+    public String deleteById(Integer id) {
+        //判断取值id是否为null，为null则表明删除失败！
+        if (id == null) {
+            return "error";
+        } else {
+            permissionService.deleteById(id);
+            return "ok";
+        }
+    }
+    @RequestMapping(value = "/batchDel")
+    @ResponseBody
+    public ResultEntity batchDel(@RequestParam("ids[]") List<Integer> ids){
+        return  ResponseUtils.writeResponse(permissionService.batchDel(ids));
     }
 }

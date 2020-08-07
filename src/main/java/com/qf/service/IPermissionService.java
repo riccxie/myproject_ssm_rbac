@@ -7,4 +7,8 @@ import java.util.List;
 
 public interface IPermissionService extends IBaseService<Permission> {
     List<Permission> getPerListByPid(Integer pid);
+
+    void deleteById(Integer id);
+
+    int batchDel(List<Integer> ids);
 }

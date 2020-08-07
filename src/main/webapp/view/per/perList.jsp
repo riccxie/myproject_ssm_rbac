@@ -21,6 +21,7 @@
                 <i class="Hui-iconfont">&#xe6e2;</i> 批量删除
             </a>
 
+
             <a href="javascript:;" onclick="admin_add('添加权限','toAddPerPage','800','500')" class="btn btn-primary radius">
                 <i class="Hui-iconfont">&#xe600;</i> 添加权限
             </a>
@@ -68,7 +69,7 @@
                         <i class="Hui-iconfont">&#xe6df;</i>
                     </a>
 
-                    <a title="删除" href="javascript:;" onclick="admin_del(this,'${user.id}')" class="ml-5" style="text-decoration:none">
+                    <a title="删除" href="javascript:;" onclick="admin_del(this,'${per.id}')" class="ml-5" style="text-decoration:none">
                         <i class="Hui-iconfont">&#xe6e2;</i>
                     </a>
                 </td>
@@ -92,25 +93,45 @@
         title	标题
         url		请求的url
         id		需要操作的数据id
-        w		弹出层宽度（缺省调默认值）
-        h		弹出层高度（缺省调默认值）
     */
     /*管理员-增加*/
     function admin_add(title,url,w,h){
 
         layer_show(title,url,w,h);
     }
-    /*管理员-删除*/
-    function admin_del(obj,id){
+//    /*管理员-删除*/
+//    function admin_del(obj,id){
+//
+//        layer.confirm('确认要删除吗？',function(index){
+//            //此处请求后台程序，下方是成功后的前台处理……
+//            layer.msg(id);
+//            // 异步异步请求,把id传递服务端
+//            layer.msg('已删除!',{icon:1,time:1000},function(){
+//                location.reload();
+//            });
+//        });
+//    }
+    /*封面图-删除*/
+    function admin_del(obj,id) {//id为取到的行id
+        var r = confirm('确认要删除吗？');
 
-        layer.confirm('确认要删除吗？',function(index){
-            //此处请求后台程序，下方是成功后的前台处理……
-            layer.msg(id);
-            // 异步异步请求,把id传递服务端
-            layer.msg('已删除!',{icon:1,time:1000},function(){
-                location.reload();
+        if (r == true) {
+            //确定执行删除
+            var id = id;
+            $.get("per/deleteById?id=" + id, function (data) {
+                if (data == "ok") {
+                    alert("删除成功!");
+                    //删除成功后，刷新页面信息
+                    location.reload();
+                } else {
+                    alert("删除失败！");
+                }
             });
-        });
+            return true;
+        } else {
+            //反之取消删除
+            return false;
+        }
     }
     /*管理员-编辑*/
     function admin_edit(title,url,id,w,h){
@@ -118,6 +139,7 @@
     }
     
     function batchDel() {
+        debugger
 
         // 1.获取用户勾选的数据
         var array = $(".user_id:checked");
@@ -134,7 +156,7 @@
         param.ids = idsArray;
 
         // 4.发送请求
-        sendRequestFlush("user/batchDel",param);
+        sendRequestFlush("per/batchDel",param);
 
     }
     /*管理员-停用*/

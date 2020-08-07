@@ -104,6 +104,11 @@
     where id = #{id,jdbcType=INTEGER}
   </update>
 
+  <!-- 删除一条信息 -->
+  <delete id="deleteById">
+    delete from t_permission where id = #{id}
+  </delete>
+
   <select id="selectList" resultMap="perListResultMap">
     SELECT
         per.*, ifnull(p.per_name, '无') as per_pname
@@ -123,5 +128,12 @@
           p.per_pid = #{id}
       group by p.id;
   </select>
+
+  <delete id="batchDel">
+    delete from t_permission where id in
+    <foreach collection="list" open="(" close=")" item="id" separator=",">
+      #{id}
+    </foreach>
+  </delete>
 
 </mapper>

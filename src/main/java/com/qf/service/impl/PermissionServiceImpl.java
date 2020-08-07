@@ -25,4 +25,22 @@ public class PermissionServiceImpl extends BaseServiceImpl<Permission> implement
     public List<Permission> getPerListByPid(Integer pid) {
         return permissionDao.getPerListByPid(pid);
     }
+
+    @Autowired
+    public IPermissionDao getuserDao() {
+        return permissionDao;
+    }
+
+    public void setPermissionDao(IPermissionDao permissionDao) {
+        this.permissionDao = permissionDao;
+    }
+    @Override
+    public void deleteById(Integer id) {
+        //删除一条
+        permissionDao.deleteById(id);
+    }
+    @Override
+    public int batchDel(List<Integer> ids) {
+        return permissionDao.batchDel(ids);
+    }
 }
