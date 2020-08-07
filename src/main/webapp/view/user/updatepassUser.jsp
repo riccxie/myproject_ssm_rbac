@@ -1,10 +1,4 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: dashixin
-  Date: 2020/8/4
-  Time: 14:24
-  To change this template use File | Settings | File Templates.
---%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
@@ -21,15 +15,9 @@
 <div class="pd-20">
     <form action="xxxxx" method="post" class="form form-horizontal" id="form-user-add">
 
-        <%--<div class="row cl">--%>
-            <%--<label class="form-label col-3"><span class="c-red"></span>id： ${user.id}</label>--%>
-        <%--</div>--%>
-
-        <%--<div class="row cl">--%>
-            <%--<label class="form-label col-3"><span class="c-red"></span>姓名： ${user.username}</label>--%>
-        <%--</div>--%>
-
-
+        <div class="row cl">
+            <label class="form-label col-3"><span class="c-red"></span>id：  ${user.id}</label>
+        </div>
             <div class="row cl">
                 <label class="form-label col-3"><span class="c-red">*</span>姓名：</label>
                 <div class="formControls col-5">
@@ -50,7 +38,7 @@
             <div class="row cl">
                 <label class="form-label col-3"><span class="c-red">*</span>新的密码：</label>
                 <div class="formControls col-5">
-                    <input type="password" placeholder="密码" id="password" name="password" autocomplete="off" value="qfAdmin" class="input-text" datatype="*6-10" nullmsg="密码不能为空">
+                    <input type="password" placeholder="密码" id="password" name="password" autocomplete="off" value="admin123" class="input-text" datatype="*6-10" nullmsg="密码不能为空">
                 </div>
                 <div class="col-4"> </div>
             </div>
@@ -58,7 +46,7 @@
             <div class="row cl">
                 <label class="form-label col-3"><span class="c-red">*</span>确认密码：</label>
                 <div class="formControls col-5">
-                    <input type="password" placeholder="密码"  recheck="password"   autocomplete="off" value="qfAdmin" class="input-text" datatype="*6-10" nullmsg="密码不能为空">
+                    <input type="password" placeholder="密码"  recheck="password"   autocomplete="off" value="admin123" class="input-text" datatype="*6-10" nullmsg="密码不能为空">
                 </div>
                 <div class="col-4"> </div>
             </div>

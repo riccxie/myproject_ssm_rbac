@@ -1,6 +1,6 @@
 # day39_ssm_01_rbac
 
-#### 介绍
+#### ssm权限系统介绍
 ssm权限管理
 
 用户模块
@@ -24,7 +24,7 @@ ssm权限管理
 
 1.  安装idea，参考百度
 2.  安装Navicat 12 for MySQL
-3.  xxxx
+
 
 #### 使用说明
 
