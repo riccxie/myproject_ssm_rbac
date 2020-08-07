@@ -6,6 +6,7 @@ import com.qf.entity.Permission;
 import java.util.List;
 
 public interface IPermissionService extends IBaseService<Permission> {
+
     List<Permission> getPerListByPid(Integer pid);
 
     void deleteById(Integer id);
