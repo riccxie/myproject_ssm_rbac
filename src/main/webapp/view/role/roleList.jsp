@@ -71,7 +71,7 @@
                 <td>${role.roleDesc}</td>
                 <td class="td-manage">
 
-                    <a title="编辑" href="javascript:;" onclick="admin_edit('用户编辑','user/getUserById/${user.id}','1','800','500')" class="ml-5" style="text-decoration:none">
+                    <a title="编辑" href="javascript:;" onclick="admin_edit('用户编辑','role/getRoleById/${user.id}','1','800','500')" class="ml-5" style="text-decoration:none">
                         <i class="Hui-iconfont">&#xe6df;</i>
                     </a>
 

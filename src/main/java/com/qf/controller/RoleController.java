@@ -41,31 +41,17 @@ public class RoleController {
         return ResponseUtils.writeResponse(insert);
     }
 //
-//    @RequestMapping(value = "/getUserById/{id}")
-//    public String getUserById(@PathVariable  Integer id,Model model){
-//        User user = userService.selectById(id);
-//        model.addAttribute("user",user);
-//        return "user/updateUser";
-//    }
-//    @RequestMapping(value = "/getUserpassById/{id}")
-//    public String getUserpassById(@PathVariable  Integer id,Model model){
-//        User user = userService.selectById(id);
-//        model.addAttribute("user",user);
-//        return "user/updatepassUser";
-//    }
-//    @RequestMapping(value = "/updatepassUser")
-//    @ResponseBody
-//    public ResultEntity updatepassUser(User user){
-//
-//        return ResponseUtils.writeResponse(userService.update(user));
-//    }
-//
-//
-//    @RequestMapping(value = "/updateUser")
-//    @ResponseBody
-//    public ResultEntity updateUser(User user){
-//       return ResponseUtils.writeResponse(userService.update(user));
-//    }
+    @RequestMapping(value = "/getRoleById/{id}")
+    public String getRoleById(@PathVariable  Integer id,Model model){
+        Role role = roleService.selectById(id);
+        model.addAttribute("role",role);
+        return "role/updateRole";
+    }
+    @RequestMapping(value = "/updateRole")
+    @ResponseBody
+    public ResultEntity updateRole(Role role){
+       return ResponseUtils.writeResponse(roleService.update(role));
+    }
 //
 //    @RequestMapping(value = "/batchDel")
 //    @ResponseBody

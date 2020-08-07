@@ -10,6 +10,5 @@ public interface IUserDao extends IBaseDao<User>{
 
     void deleteById(Integer id);
 
-
 }
 

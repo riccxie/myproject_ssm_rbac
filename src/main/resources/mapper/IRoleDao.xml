@@ -46,5 +46,17 @@
             </if>
         </trim>
     </insert>
+    <update id="update">
+        update t_role
+        <set >
+            <if test="roleName != null" >
+                role_name = #{roleName,jdbcType=VARCHAR},
+            </if>
+            <if test="roleDesc != null" >
+                role_desc = #{roleDesc,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
 
 </mapper>
