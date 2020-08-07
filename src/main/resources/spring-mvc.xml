@@ -31,6 +31,7 @@
     <mvc:view-controller path="/toAddUserPage" view-name="user/addUser"/>
     <mvc:view-controller path="/toAddPerPage" view-name="per/addPer"/>
     <mvc:view-controller path="/toMenuZtree" view-name="per/menuZtree"/>
+    <mvc:view-controller path="/toAddRolePage" view-name="role/addRole"/>
     <!--<mvc:view-controller path="/toAuthList" view-name="auth/authList"/>-->
     <!--<mvc:view-controller path="/toAuthPerZtree" view-name="auth/authPerZtree"/>-->
 

@@ -33,7 +33,6 @@ public class UserController {
         return  "user/userList";
     }
 
-
     @RequestMapping(value = "/addUser")
     @ResponseBody
     public ResultEntity addUser(User user){

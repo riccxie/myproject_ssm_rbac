@@ -34,12 +34,12 @@ public class RoleController {
     }
 
 
-//    @RequestMapping(value = "/addUser")
-//    @ResponseBody
-//    public ResultEntity addUser(User user){
-//        int insert = userService.insert(user);
-//        return ResponseUtils.writeResponse(insert);
-//    }
+    @RequestMapping(value = "/addRole")
+    @ResponseBody
+    public ResultEntity addRole(Role role){
+        int insert = roleService.insert(role);
+        return ResponseUtils.writeResponse(insert);
+    }
 //
 //    @RequestMapping(value = "/getUserById/{id}")
 //    public String getUserById(@PathVariable  Integer id,Model model){
