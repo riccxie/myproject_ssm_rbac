@@ -38,7 +38,7 @@ public class PermissionController {
         return ResponseUtils.writeResponse(permissionService.insert(permission));
     }
 
-    //注释掉的内容
+    //注释掉的内容*
 //    @RequestMapping(value = "/getPerListByPid")
 //    @ResponseBody
 //    public List<Map<String,Object>> getPerListByPid(Integer id){
