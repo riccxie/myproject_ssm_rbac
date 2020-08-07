@@ -1,4 +1,3 @@
-
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -12,16 +11,16 @@
 </head>
 <body>
 <div>
-        <input type="text" id="perName"><button onclick="closeZtreePage()">确定</button>
-        <input type="hidden" id="perId">
-    <!-- 准备一个容器用来显示树插件-->
+    <input type="text" id="perName"><button onclick="closeZtreePage()">确定</button>
+    <input type="hidden" id="perId">
+    <!--准备一个容器用来显示树插件-->
     <ul id="treeDemo" class="ztree"></ul>
 </div>
 <SCRIPT LANGUAGE="JavaScript">
 
     var zTreeObj;
 
-    // zTree 的参数配置，深入使用请参考 API 文档（setting 配置详解）
+//    zTree 的参数配置，深入使用请参考 API 文档（setting 配置详解）
     var setting = {
         async: {
             enable: true, // 开启异步加载
@@ -41,7 +40,7 @@
         $("#perName").val(treeNode.name);
         $("#perId").val(treeNode.id);
     };
-    
+
     function closeZtreePage() {
 
         // 获取用户选择父权限
