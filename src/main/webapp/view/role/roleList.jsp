@@ -76,7 +76,7 @@
                     </a>
 
 
-                    <a title="删除" href="javascript:;" onclick="admin_del(this,'${user.id}')" class="ml-5" style="text-decoration:none">
+                    <a title="删除" href="javascript:;" onclick="admin_del(this,'${role.id}')" class="ml-5" style="text-decoration:none">
                         <i class="Hui-iconfont">&#xe6e2;</i>
                     </a>
 
@@ -105,13 +105,13 @@
     }
 
 
-    /*用户-删除*/
+    /*角色删除*/
     function admin_del(obj,id) {//id为取到的行id
         var r = confirm('确认要删除吗？');
         if (r == true) {
             //确定执行删除
             var id = id;
-            $.get("user/deleteById?id=" + id, function (data) {
+            $.get("role/deleteById?id=" + id, function (data) {
                 if (data == "ok") {
                     alert("删除成功!");
                     //删除成功后，刷新页面信息
@@ -153,7 +153,7 @@
         param.ids = idsArray;
 
         // 4.发送请求
-        sendRequestFlush("user/batchDel",param);
+        sendRequestFlush("role/batchDel",param);
 
     }
     /*管理员-停用*/

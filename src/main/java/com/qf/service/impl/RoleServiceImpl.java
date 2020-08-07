@@ -24,25 +24,26 @@ public class RoleServiceImpl extends BaseServiceImpl<Role> implements IRoleServi
         return roleDao;
     }
 
-//    @Override
-//    public int batchDel(List<Integer> ids) {
-//        return userDao.batchDel(ids);
-//    }
-//
-//
-//    @Autowired
-//    public IUserDao getuserDao() {
-//        return userDao;
-//    }
-//
-//    public void setUserDao(IUserDao userDao) {
-//        this.userDao = userDao;
-//    }
-//    @Override
-//    public void deleteById(Integer id) {
-//        //删除一条
-//        userDao.deleteById(id);
-//    }
+    @Autowired
+    public IRoleDao getRoleDao() {
+        return roleDao;
+    }
+
+    public void setRoleDao(IRoleDao roleDao) {
+        this.roleDao = roleDao;
+    }
+    @Override
+    public void deleteById(Integer id) {
+        //删除一条
+        roleDao.deleteById(id);
+    }
+
+    @Override
+    public int batchDel(List<Integer> ids) {
+        return roleDao.batchDel(ids);
+    }
+
+
 
 
 }

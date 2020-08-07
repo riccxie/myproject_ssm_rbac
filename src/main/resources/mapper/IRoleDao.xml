@@ -58,5 +58,15 @@
         </set>
         where id = #{id,jdbcType=INTEGER}
     </update>
+    <!-- 删除一条信息 -->
+    <delete id="deleteById">
+        delete from t_role where id = #{id}
+    </delete>
+    <delete id="batchDel">
+        delete from t_role where id in
+        <foreach collection="list" open="(" close=")" item="id" separator=",">
+            #{id}
+        </foreach>
+    </delete>
 
 </mapper>

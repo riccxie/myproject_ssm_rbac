@@ -7,8 +7,8 @@ import com.qf.entity.User;
 import java.util.List;
 
 public interface IRoleService extends IBaseService<Role> {
-//    int batchDel(List<Integer> ids);
-//
-//    void deleteById(Integer id);
+    void deleteById(Integer id);
+
+    int batchDel(List<Integer> ids);
 
 }

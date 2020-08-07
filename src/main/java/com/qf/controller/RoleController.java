@@ -52,28 +52,29 @@ public class RoleController {
     public ResultEntity updateRole(Role role){
        return ResponseUtils.writeResponse(roleService.update(role));
     }
-//
-//    @RequestMapping(value = "/batchDel")
-//    @ResponseBody
-//    public ResultEntity batchDel(@RequestParam("ids[]") List<Integer> ids){
-//        return  ResponseUtils.writeResponse(userService.batchDel(ids));
-//    }
-//
-//    /**
-//     * 删除一条信息
-//     * @param id
-//     * @return
-//     */
-//    @RequestMapping("deleteById")
-//    @ResponseBody
-//    public String deleteById(Integer id) {
-//        //判断取值id是否为null，为null则表明删除失败！
-//        if (id == null) {
-//            return "error";
-//        } else {
-//            userService.deleteById(id);
-//            return "ok";
-//        }
-//    }
+    /**
+     * 删除一条信息
+     * @param id
+     * @return
+     */
+    @RequestMapping("deleteById")
+    @ResponseBody
+    public String deleteById(Integer id) {
+        //判断取值id是否为null，为null则表明删除失败！
+        if (id == null) {
+            return "error";
+        } else {
+            roleService.deleteById(id);
+            return "ok";
+        }
+    }
+
+
+    @RequestMapping(value = "/batchDel")
+    @ResponseBody
+    public ResultEntity batchDel(@RequestParam("ids[]") List<Integer> ids){
+        return  ResponseUtils.writeResponse(roleService.batchDel(ids));
+    }
+
 
     }
