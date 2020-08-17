@@ -73,6 +73,6 @@
 
         delete from t_role_permission where rid = #{roleId}
 
-    </delete>
+</delete>
 
 </mapper>

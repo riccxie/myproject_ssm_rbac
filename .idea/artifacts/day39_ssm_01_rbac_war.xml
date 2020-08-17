@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="day39_ssm_01_rbac:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="day39_ssm_01_rbac.war">
+      <element id="artifact" artifact-name="day39_ssm_01_rbac:war exploded" />
+    </root>
+  </artifact>
+</component>
