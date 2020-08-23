@@ -1,4 +1,4 @@
-# day39_ssm_01_rbac
+# https://gitee.com/xieeast/rbac_ssm_myproject
 
 #### ssm权限系统介绍
 ssm权限管理
