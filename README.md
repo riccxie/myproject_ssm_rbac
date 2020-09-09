@@ -1,5 +1,5 @@
 # https://gitee.com/xieeast/rbac_ssm_myproject
-
+用于学习与欣赏，不得商用
 #### ssm权限系统介绍
 ssm权限管理
 
